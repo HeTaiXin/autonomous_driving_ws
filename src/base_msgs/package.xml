@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>base_msgs</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="2396807312@qq.com">txhe</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- 1. 编译时依赖：生成接口代码需要的工具包 -->
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <!-- 2. 运行时依赖：节点运行时需要的接口库 -->
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- 3. 声明该包是接口包，让ROS识别（这样 ros2 interface 命令才能列出你的服务、消息等） -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <depend>visualization_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,35 @@
+digraph G {
+node [shape=box];
+"map" [label="map"];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"camera" [label="camera"];
+"left_front_steering_knuckle" [label="left_front_steering_knuckle"];
+"left_front" [label="left_front"];
+"left_rear" [label="left_rear"];
+"radar" [label="radar"];
+"right_front_steering_knuckle" [label="right_front_steering_knuckle"];
+"right_front" [label="right_front"];
+"right_rear" [label="right_rear"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"map" -> "footprint_to_map" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"footprint_to_map" -> "base_footprint"
+"base_footprint" -> "base_to_footprint" [label="xyz: 0 0 0.5 \nrpy: 0 -0 0"]
+"base_to_footprint" -> "base_link"
+"base_link" -> "camera2base_link" [label="xyz: 1.48 0 0.4 \nrpy: 0 -0 0"]
+"camera2base_link" -> "camera"
+"base_link" -> "left_front_turning" [label="xyz: 1.1 1 -0.2 \nrpy: 0 -0 0"]
+"left_front_turning" -> "left_front_steering_knuckle"
+"left_front_steering_knuckle" -> "left_front_rolling" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"left_front_rolling" -> "left_front"
+"base_link" -> "left_rear_rolling" [label="xyz: -1.1 1 -0.2 \nrpy: 0 -0 0"]
+"left_rear_rolling" -> "left_rear"
+"base_link" -> "radar2base_link" [label="xyz: 0 0 0.4 \nrpy: 0 -0 0"]
+"radar2base_link" -> "radar"
+"base_link" -> "right_front_turning" [label="xyz: 1.1 -1 -0.2 \nrpy: 0 -0 0"]
+"right_front_turning" -> "right_front_steering_knuckle"
+"right_front_steering_knuckle" -> "right_front_rolling" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"right_front_rolling" -> "right_front"
+"base_link" -> "right_rear_rolling" [label="xyz: -1.1 -1 -0.2 \nrpy: 0 -0 0"]
+"right_rear_rolling" -> "right_rear"
+}
